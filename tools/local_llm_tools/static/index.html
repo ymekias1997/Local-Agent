@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Local Agent</title><link rel="stylesheet" href="/style.css"></head>
+<body><header><h1>Local Agent</h1><p>Tasks, permissions, memories and live activity on this computer.</p></header>
+<main><section id="login"><h2>Connect</h2><p>Read the private dashboard token with the service CLI's <code>token</code> command.</p><form id="login-form"><input id="token" type="password" required aria-label="Dashboard token" autocomplete="off"><button>Connect</button></form></section>
+<p id="error" role="alert"></p><div id="workspace" hidden>
+<section><h2>Create task</h2><form id="task-form"><label>Instructions<textarea id="prompt" required></textarea></label><label>Run at (optional)<input id="at" type="datetime-local"></label><label>Repeat every seconds (optional)<input id="interval" type="number" min="1"></label><label>Watch path (optional)<input id="watch"></label><button>Create</button></form></section>
+<section><h2>Approvals</h2><p>Review the exact action and its effects before choosing. Each approval authorizes one occurrence.</p><div id="approvals"></div></section>
+<section><h2>Tasks</h2><p>Pause and cancel take effect between actions. An action already running may finish.</p><div id="tasks"></div></section>
+<section><h2>Memory</h2><form id="memory-form"><label>Agent identifier<input id="owner" value="main"></label><label>Search<input id="query"></label><button>Inspect</button></form><div id="memories"></div></section>
+<section><h2>Live activity</h2><pre id="events" aria-live="polite"></pre></section>
+</div></main><script src="/app.js"></script></body></html>

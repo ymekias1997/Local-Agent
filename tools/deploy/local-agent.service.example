@@ -1,0 +1,18 @@
+# Copy and edit explicitly to ~/.config/systemd/user/local-agent.service.
+# This template does not install packages or enable itself.
+[Unit]
+Description=Local Ollama agent dashboard and task scheduler
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+# Replace repository path, model and granted root with your own choices.
+WorkingDirectory=%h/Work/local-llm-tools
+ExecStart=/usr/bin/python3 -m local_llm_tools.service --state-dir %h/.local/state/local-llm-tools serve --model YOUR_MODEL --root %h/agent-workspace
+Restart=on-failure
+RestartSec=5
+UMask=0077
+
+[Install]
+WantedBy=graphical-session.target

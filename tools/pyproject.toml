@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-llm-tools"
+version = "0.3.0"
+description = "Local Python agent with file, web, script and child-agent tools"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+local-agent = "local_llm_tools.__main__:main"
+agent-control = "local_llm_tools.service:main"
+
+[tool.setuptools.packages.find]
+include = ["local_llm_tools*"]
+
+[tool.setuptools.package-data]
+local_llm_tools = ["static/*"]
